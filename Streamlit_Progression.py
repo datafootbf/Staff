@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 # Données
 @st.cache_data
 def load_data():
-    df = pd.read_csv("/Users/favie/Desktop/Deposit/Statsbomb/Adversaire/Progression/Progression Final Serie A.csv")
+    file_path = 'Progression Final Serie A.csv'
+    df = pd.read_csv(file_path)
     df = df[df["Position"].notna()]  # Nettoyage de base
     return df
 
