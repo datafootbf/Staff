@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 # Fonction pour charger les dataframes depuis le fichier CSV
 @st.cache_data
 def load_data():
-    file_path = '/Users/favie/Desktop/Deposit/Statsbomb/Adversaire/Saison/Serie A teamdata.csv'
+    file_path = 'Serie A teamdata.csv'
     df = pd.read_csv(file_path)
 
     # Traitement des données et création des quatre tableaux avec moyenne et renommage des colonnes
