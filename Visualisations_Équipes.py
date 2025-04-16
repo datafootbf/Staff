@@ -155,7 +155,7 @@ def render_table(df, top_metrics, bottom_metrics, title_map, highlight_team):
                     bgcolor = "silver"
                 elif team == "AS Roma":
                     bgcolor = "firebrick"
-                elif team == highlight_team:
+                elif team == highlight_teams:
                     bgcolor = "peachpuff"
                 else:
                     bgcolor = None
@@ -255,7 +255,11 @@ df = dataframes[tableau]
 top_metrics, bottom_metrics, title_map = config[tableau]
 
 all_teams = df[df["team_name"] != "Media Serie A"]["team_name"].tolist()
-highlight_team = st.multiselect("Scegliere una squadra da mettere in evidenza :", all_teams, index=all_teams.index("AC Milan") if "AC Milan" in all_teams else 0)
+highlight_teams = st.multiselect(
+    "Scegliere una squadra da mettere in evidenza :",
+    all_teams,
+    default=["AC Milan"] if "AC Milan" in all_teams else []
+)
 
 # Liste des métriques à trier du plus petit au plus grand
 ascending_metrics = [
