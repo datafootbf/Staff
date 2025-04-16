@@ -255,7 +255,7 @@ df = dataframes[tableau]
 top_metrics, bottom_metrics, title_map = config[tableau]
 
 all_teams = df[df["team_name"] != "Media Serie A"]["team_name"].tolist()
-highlight_team = st.selectbox("Scegliere una squadra da mettere in evidenza :", all_teams, index=all_teams.index("AC Milan") if "AC Milan" in all_teams else 0)
+highlight_team = st.multiselect("Scegliere una squadra da mettere in evidenza :", all_teams, index=all_teams.index("AC Milan") if "AC Milan" in all_teams else 0)
 
 # Liste des métriques à trier du plus petit au plus grand
 ascending_metrics = [
