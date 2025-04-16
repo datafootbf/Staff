@@ -112,7 +112,7 @@ def load_data():
     }
 
 # Fonction de rendu du tableau avec surlignage de ligne (inchangée)
-def render_table(df, top_metrics, bottom_metrics, title_map, highlight_team):
+def render_table(df, top_metrics, bottom_metrics, title_map, highlight_teams):
     num_cols = max(len(top_metrics), len(bottom_metrics))
     row_height = 0.4  # hauteur par ligne
     n_teams = df.shape[0] + 1  # +1 pour la ligne de titre
