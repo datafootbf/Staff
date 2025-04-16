@@ -112,7 +112,7 @@ def load_data():
     }
 
 # Fonction de rendu du tableau avec surlignage de ligne (inchangée)
-def render_table(df, top_metrics, bottom_metrics, title_map, highlight_team):
+def render_table(df, top_metrics, bottom_metrics, title_map, highlight_team, highlight_team1):
     num_cols = max(len(top_metrics), len(bottom_metrics))
     row_height = 0.4  # hauteur par ligne
     n_teams = df.shape[0] + 1  # +1 pour la ligne de titre
@@ -157,6 +157,8 @@ def render_table(df, top_metrics, bottom_metrics, title_map, highlight_team):
                     bgcolor = "firebrick"
                 elif team == highlight_team:
                     bgcolor = "peachpuff"
+                elif team == highlight_team1:
+                    bgcolor = "gold"
                 else:
                     bgcolor = None
 
@@ -256,6 +258,7 @@ top_metrics, bottom_metrics, title_map = config[tableau]
 
 all_teams = df[df["team_name"] != "Media Serie A"]["team_name"].tolist()
 highlight_team = st.selectbox("Scegliere una squadra da mettere in evidenza :", all_teams, index=all_teams.index("AC Milan") if "AC Milan" in all_teams else 0)
+highlight_team1 = st.selectbox("Scegliere una squadra da mettere in evidenza :", all_teams, index=all_teams.index("Juventus") if "Juventus" in all_teams else 0)
 
 # Liste des métriques à trier du plus petit au plus grand
 ascending_metrics = [
@@ -265,7 +268,7 @@ ascending_metrics = [
     "Opp. Deep Progression", "Opp. Passing%", "Penalties Conc.", "Set Pieces xG Conc."
 ]
 
-render_table(df, top_metrics, bottom_metrics, title_map, highlight_team)
+render_table(df, top_metrics, bottom_metrics, title_map, highlight_team,highlight_team1)
 
 st.markdown("---")
 st.markdown(explications[tableau])
