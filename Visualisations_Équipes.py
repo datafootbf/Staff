@@ -269,7 +269,7 @@ ascending_metrics = [
     "Opp. Deep Progression", "Opp. Passing%", "Penalties Conc.", "Set Pieces xG Conc."
 ]
 
-render_table(df, top_metrics, bottom_metrics, title_map, highlight_team)
+render_table(df, top_metrics, bottom_metrics, title_map, highlight_teams)
 
 st.markdown("---")
 st.markdown(explications[tableau])
